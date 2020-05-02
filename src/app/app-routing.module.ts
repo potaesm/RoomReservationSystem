@@ -7,12 +7,12 @@ import { BookingPageComponent } from './booking-page/booking-page.component';
 import { BookingListPageComponent } from './booking-list-page/booking-list-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/booking-list', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
   { path: 'table', component: TablePageComponent },
   { path: 'booking', component: BookingPageComponent },
   { path: 'booking-list', component: BookingListPageComponent },
-  { path: '**', redirectTo: '/booking-list', pathMatch: 'full' }
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
