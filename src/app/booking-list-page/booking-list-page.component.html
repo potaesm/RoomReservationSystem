@@ -9,11 +9,11 @@
             </router-outlet>
             <br>
             <br>
-            <div *ngFor="let request of requests; let i = index" class="center">
+            <div *ngFor="let request of requests" class="center">
                 <mat-card class="request-cards">
-                    <h3>ข้อมูลคำขอการจอง {{i+1}}</h3>
+                    <h3 *ngIf="request.status" class="success">อนุมัติการจองแล้ว</h3>
+                    <h3 *ngIf="!request.status" class="waiting">คำขอการจอง</h3>
                     <mat-card-content>
-                        <p>id : <span>{{request.id}}</span></p>
                         <p>ชื่อ - นามสกุล : <span>{{request.name}}</span></p>
                         <p>รหัสนักศึกษา หรือรหัสบุคลากร : <span>{{request.codeId}}</span></p>
                         <p>เบอร์โทรติดต่อ : <span>{{request.tel}}</span></p>
@@ -27,8 +27,9 @@
                     <mat-form-field class="input-width">
                         <input matInput placeholder="เหตุผลการไม่อนุมัติจอง" [(ngModel)]="request.rejectReason">
                     </mat-form-field>
-                    <button mat-raised-button color="accent" (click)="onOk(request)">อนุมัติการจอง</button>
-                    <button mat-raised-button color="accent" (click)="onReject(request)">ไม่อนุมัติการจอง</button>
+                    <button mat-raised-button (click)="onOk(request)">อนุมัติการจอง</button>
+                    <br>
+                    <button mat-raised-button (click)="onReject(request)">ไม่อนุมัติการจอง</button>
                 </mat-card>
             </div>
         </mat-card-content>

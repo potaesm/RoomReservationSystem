@@ -57,6 +57,15 @@ export class ApiService {
       });
   }
 
+  verifyBooking(id: string): Observable<Booking> {
+    return this.http.patch<Booking>(this.ApiUrl + this.RegisterBookingCollection + `&id=${id}`, { status: true }, {
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .pipe((data) => {
+        return data;
+      });
+  }
+
   deleteBooking(id: string): Observable<Booking> {
     return this.http.delete<Booking>(this.ApiUrl + this.RegisterBookingCollection + `&id=${id}`)
       .pipe((data) => {

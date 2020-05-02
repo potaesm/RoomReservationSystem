@@ -22,7 +22,7 @@ export class BookingListPageComponent implements OnInit {
   onOk(request: any) {
     this.api.sendEmail(`ผลการจองห้อง ${request.selectedRoom} ของคุณ${request.name}`, `การจองห้อง ${request.selectedRoom} วัน${request.selectedDay} เวลา ${request.bookingInitialTime} - ${request.bookingTerminateTime} น. ได้รับการอนุมัติเป็นที่เรียบร้อยแล้ว`, request.email)
       .subscribe(data => {
-        this.api.deleteBooking(request.id).subscribe(data => {
+        this.api.verifyBooking(request.id).subscribe(data => {
           this.dialog.open(DialogComponent, { width: '250px', data: { title: "อนุมัติแล้ว", content: "แจ้งผลการอนุมัติไปยังอีเมล์ของผู้ใช้แล้ว" } })
             .afterClosed().subscribe((result) => {
               this.ngOnInit();

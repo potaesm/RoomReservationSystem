@@ -48,3 +48,11 @@ table {
     background-color: tomato;
     color: white;
 }
+
+.success {
+    color: green;
+}
+
+.waiting {
+    color: red;
+}
