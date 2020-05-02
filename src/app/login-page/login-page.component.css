@@ -1,0 +1,22 @@
+@import 'https://fonts.googleapis.com/css?family=Kanit';
+* {
+    font-family: 'Kanit', sans-serif;
+}
+
+.mat-card {
+    margin: auto;
+    background-color: tomato;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
+@media screen and (max-width: 1230px) {
+    .wide-screen-ul {
+        display: none;
+    }
+    .small-screen-button {
+        display: block;
+    }
+}

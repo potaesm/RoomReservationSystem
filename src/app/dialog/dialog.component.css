@@ -1,0 +1,17 @@
+@import 'https://fonts.googleapis.com/css?family=Kanit';
+* {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+}
+
+.error-dialog {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.error-dialog-button {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}

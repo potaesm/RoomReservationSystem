@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'https://fonts.googleapis.com/css?family=Kanit';
+* {
+    font-family: 'Kanit', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.center-align {
+    text-align: center;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: whitesmoke;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

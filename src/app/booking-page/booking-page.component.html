@@ -1,0 +1,65 @@
+<div class="page-container">
+    <mat-card class="center-align">
+        <mat-card-title>กรุณากรอกข้อมูล</mat-card-title>
+        <mat-card-content>
+            <mat-form-field class="input-width">
+                <input matInput placeholder="ชื่อ - นามสกุล" [(ngModel)]="name">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="input-width">
+                <input matInput placeholder="รหัสนักศึกษา หรือรหัสบุคลากร" [(ngModel)]="codeId">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="input-width">
+                <input matInput placeholder="เบอร์โทรติดต่อ" [(ngModel)]="tel">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="input-width">
+                <input matInput placeholder="E-mail" [(ngModel)]="email">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="input-width">
+                <mat-label>ห้องที่ต้องการจอง</mat-label>
+                <mat-select [(ngModel)]="selectedRoom">
+                    <mat-option *ngFor="let room of rooms" [value]="room.value">
+                        {{room.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="input-width">
+                <mat-label>วันที่ต้องการจอง</mat-label>
+                <mat-select [(ngModel)]="selectedDay">
+                    <mat-option *ngFor="let day of days" [value]="day.value">
+                        {{day.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="input-width">
+                <mat-label>เวลาเริ่มต้น</mat-label>
+                <mat-select [(ngModel)]="bookingInitialTime">
+                    <mat-option *ngFor="let time of times" [value]="time.value">
+                        {{time.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="input-width">
+                <mat-label>เวลาสิ้นสุด</mat-label>
+                <mat-select [(ngModel)]="bookingTerminateTime">
+                    <mat-option *ngFor="let time of times" [value]="time.value">
+                        {{time.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="input-width">
+                <input matInput placeholder="เหตุผลในการจอง" [(ngModel)]="reason">
+            </mat-form-field>
+        </mat-card-content>
+        <button mat-raised-button class="submit-button" (click)="onSubmit()">ยืนยันการจอง</button>
+        <span class="spacer"></span>
+        <button mat-raised-button class="cancel-button" (click)="onLogout()">ออกจากระบบ</button>
+    </mat-card>
+</div>

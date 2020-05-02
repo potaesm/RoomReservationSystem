@@ -1,0 +1,28 @@
+.page-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+mat-card {
+    width: 60%;
+}
+
+.half-input-width {
+    width: 50%;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-header-cell {
+    text-align: center;
+}
+
+.spacer {
+    margin-left: 10px;
+    margin-right: 10px;
+}

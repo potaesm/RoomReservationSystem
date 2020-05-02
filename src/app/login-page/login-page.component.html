@@ -1,0 +1,16 @@
+<div class="container" *ngIf="!loggedin"
+  [ngStyle]="{background: 'url(https://siamblockchain.com/wp-content/uploads/2018/10/kmutt-1280x720.jpeg)'}">
+  <mat-card class="center-align">
+    <mat-card-title>Room Reservation System<br>ยินดีต้อนรับ</mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput placeholder="ชื่อผู้ใช้" [(ngModel)]="username" (keyup.enter)="onClick()">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="รหัสผ่าน" [(ngModel)]="password" (keyup.enter)="onClick()">
+      </mat-form-field>
+    </mat-card-content>
+    <button mat-raised-button color="accent" (click)="onClick()">เข้าสู่ระบบ</button>
+  </mat-card>
+</div>

@@ -1,0 +1,61 @@
+<div class="page-container">
+    <mat-card class="center-align">
+        <mat-card-title>ตารางการใช้ห้อง</mat-card-title>
+        <mat-card-content>
+            <mat-form-field class="half-input-width">
+                <mat-label>เลือกวัน</mat-label>
+                <mat-select [(ngModel)]="filterDay" (ngModelChange)="onSelectedDay(filterDay)">
+                    <mat-option *ngFor="let day of days" [value]="day.value">
+                        {{day.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <span class="spacer"></span>
+            <router-outlet>
+                <button mat-raised-button routerLink="/booking">จองห้อง</button>
+                <span class="spacer"></span>
+                <button mat-raised-button routerLink="/login">ออกจากระบบ</button>
+            </router-outlet>
+            <table mat-table [dataSource]="units" class="mat-elevation-z8">
+                <ng-container matColumnDef="TIME">
+                    <th mat-header-cell *matHeaderCellDef> TIME </th>
+                    <td mat-cell *matCellDef="let unit">{{unit.time}}</td>
+                </ng-container>
+                <ng-container matColumnDef="CB40901">
+                    <th mat-header-cell *matHeaderCellDef> CB40901 </th>
+                    <td mat-cell *matCellDef="let unit">{{unit.CB40901}}</td>
+                </ng-container>
+                <ng-container matColumnDef="CB40902">
+                    <th mat-header-cell *matHeaderCellDef> CB40902 </th>
+                    <td mat-cell *matCellDef="let unit">{{unit.CB40902}}</td>
+                </ng-container>
+                <ng-container matColumnDef="CB40903">
+                    <th mat-header-cell *matHeaderCellDef> CB40903 </th>
+                    <td mat-cell *matCellDef="let unit">{{unit.CB40903}}</td>
+                </ng-container>
+                <ng-container matColumnDef="CB41001">
+                    <th mat-header-cell *matHeaderCellDef> CB41001 </th>
+                    <td mat-cell *matCellDef="let unit">{{unit.CB41001}}</td>
+                </ng-container>
+                <ng-container matColumnDef="CB41002">
+                    <th mat-header-cell *matHeaderCellDef> CB41002 </th>
+                    <td mat-cell *matCellDef="let unit">{{unit.CB41002}}</td>
+                </ng-container>
+                <ng-container matColumnDef="CB41003">
+                    <th mat-header-cell *matHeaderCellDef> CB41003 </th>
+                    <td mat-cell *matCellDef="let unit">{{unit.CB41003}}</td>
+                </ng-container>
+                <ng-container matColumnDef="CB41004">
+                    <th mat-header-cell *matHeaderCellDef> CB41004 </th>
+                    <td mat-cell *matCellDef="let unit">{{unit.CB41004}}</td>
+                </ng-container>
+                <ng-container matColumnDef="CB41005">
+                    <th mat-header-cell *matHeaderCellDef> CB41005 </th>
+                    <td mat-cell *matCellDef="let unit">{{unit.CB41005}}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,51 @@
+@import 'https://fonts.googleapis.com/css?family=Kanit';
+* {
+    font-family: 'Kanit', sans-serif;
+}
+
+mat-toolbar {
+    background-color: white;
+}
+
+.menu-item {
+    font-family: 'Kanit', sans-serif;
+}
+
+.wide-screen-ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+li {
+    margin-right: 5px;
+    float: left;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+span a {
+    text-decoration: none;
+}
+
+.mat-card {
+    margin: auto;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
+.small-screen-button {
+    display: none;
+}
+
+@media screen and (max-width: 1230px) {
+    .wide-screen-ul {
+        display: none;
+    }
+    .small-screen-button {
+        display: block;
+    }
+}
