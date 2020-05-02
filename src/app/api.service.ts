@@ -26,6 +26,21 @@ export class ApiService {
   private ApiUrl: string = 'https://asia-east2-simplecloudfirestoreapi.cloudfunctions.net/api';
   private RegisterBookingCollection: string = '?collection=Booking';
 
+  sendEmail(subject: string, text: string, receiverUser: string): Observable<Booking> {
+    return this.http.post<Booking>(this.ApiUrl + '/sendEmail/?service=gmail', {
+      senderUser: 'Room.ene.kmutt@gmail.com',
+      senderPass: 'rrsene000',
+      receiverUser: receiverUser,
+      subject: subject,
+      text: text
+    }, {
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .pipe((data) => {
+        return data;
+      });
+  }
+
   registerBooking(Booking: Booking, id: string): Observable<Booking> {
     return this.http.post<Booking>(this.ApiUrl + this.RegisterBookingCollection + `&id=${id}`, Booking, {
       headers: { 'Content-Type': 'application/json' }

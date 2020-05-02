@@ -27,7 +27,8 @@
                     <mat-form-field class="input-width">
                         <input matInput placeholder="เหตุผลการไม่อนุมัติจอง" [(ngModel)]="request.rejectReason">
                     </mat-form-field>
-                    <button mat-raised-button color="accent" (click)="onClick(request)">ยืนยันการจอง</button>
+                    <button mat-raised-button color="accent" (click)="onOk(request)">อนุมัติการจอง</button>
+                    <button mat-raised-button color="accent" (click)="onReject(request)">ไม่อนุมัติการจอง</button>
                 </mat-card>
             </div>
         </mat-card-content>

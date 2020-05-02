@@ -19,10 +19,29 @@ export class BookingListPageComponent implements OnInit {
       });
   }
 
-  onClick(request: any) {
+  onOk(request: any) {
+    this.api.sendEmail(`ผลการจองห้อง ${request.selectedRoom} ของคุณ${request.name}`, `การจองห้อง ${request.selectedRoom} วัน${request.selectedDay} เวลา ${request.bookingInitialTime} - ${request.bookingTerminateTime} น. ได้รับการอนุมัติเป็นที่เรียบร้อยแล้ว`, request.email)
+      .subscribe(data => {
+        this.api.deleteBooking(request.id).subscribe(data => {
+          this.dialog.open(DialogComponent, { width: '250px', data: { title: "อนุมัติแล้ว", content: "แจ้งผลการอนุมัติไปยังอีเมล์ของผู้ใช้แล้ว" } })
+            .afterClosed().subscribe((result) => {
+              this.ngOnInit();
+            });
+        });
+      });
+  }
+
+  onReject(request: any) {
     if (request.rejectReason !== undefined) {
-      console.log(request.id, request.rejectReason);
-      // this.api.deleteBooking(request.id);
+      this.api.sendEmail(`ผลการจองห้อง ${request.selectedRoom} ของคุณ${request.name}`, `การจองห้อง ${request.selectedRoom} วัน${request.selectedDay} เวลา ${request.bookingInitialTime} - ${request.bookingTerminateTime} น. ไม่ได้รับการอนุมัติเนื่องจาก${request.rejectReason}`, request.email)
+        .subscribe(data => {
+          this.api.deleteBooking(request.id).subscribe(data => {
+            this.dialog.open(DialogComponent, { width: '250px', data: { title: "ไม่อนุมัติการจอง", content: "แจ้งผลการไม่อนุมัติไปยังอีเมล์ของผู้ใช้แล้ว" } })
+              .afterClosed().subscribe((result) => {
+                this.ngOnInit();
+              });
+          });
+        });
     } else {
       this.dialog.open(DialogComponent, { width: '250px', data: { title: "ข้อมูลผิดพลาด", content: "กรุณาระบุเหตุผลในการไม่อนุมัติการจอง" } });
     }
