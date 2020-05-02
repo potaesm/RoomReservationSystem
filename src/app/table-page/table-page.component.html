@@ -15,6 +15,8 @@
                 <button mat-raised-button routerLink="/booking">จองห้อง</button>
                 <span class="spacer"></span>
                 <button mat-raised-button routerLink="/login">ออกจากระบบ</button>
+                <span *ngIf="state == 'admin'" class="spacer"></span>
+                <button *ngIf="state == 'admin'" mat-raised-button routerLink="/booking-list">คำขอการจอง</button>
             </router-outlet>
             <table mat-table [dataSource]="units" class="mat-elevation-z8">
                 <ng-container matColumnDef="TIME">

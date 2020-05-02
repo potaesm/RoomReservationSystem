@@ -15,14 +15,17 @@ export class LoginPageComponent implements OnInit {
 
   username: string;
   password: string;
+  keyUsernameAdmin: string = "admin"
+  keyPasswordAdmin: string = "1234";
   keyUsername: string = "ENE"
   keyPassword: string = "1234";
-  loggedin: boolean = false;
   monthlyEventColor: string = 'accent';
 
   onClick() {
+    if (this.password === this.keyPasswordAdmin && this.username === this.keyUsernameAdmin) {
+      this.router.navigate(['/table'], { queryParams: { user: 'admin' } });
+    }
     if (this.password === this.keyPassword && this.username === this.keyUsername) {
-      this.loggedin = true;
       this.router.navigate(['/table']);
     }
   }

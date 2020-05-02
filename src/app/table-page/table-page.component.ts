@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { ActivatedRoute } from '@angular/router';
 
 export interface Select {
   value: string;
@@ -13,7 +14,9 @@ export interface Select {
 })
 export class TablePageComponent implements OnInit {
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, public activatedRoute: ActivatedRoute) { }
+
+  state: any;
 
   units: any = [];
   dataArray: any = [];
@@ -43,6 +46,7 @@ export class TablePageComponent implements OnInit {
   displayedColumns: string[] = ['TIME', 'CB40901', 'CB40902', 'CB40903', 'CB41001', 'CB41002', 'CB41003', 'CB41004', 'CB41005'];
 
   ngOnInit() {
+    this.state = this.activatedRoute.snapshot.queryParamMap.get('user');
   }
 
   onSelectedDay(filterDay: string) {
