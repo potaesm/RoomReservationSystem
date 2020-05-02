@@ -42,7 +42,7 @@ export class ApiService {
       });
   }
 
-  deleteBooking(id: number): Observable<Booking> {
+  deleteBooking(id: string): Observable<Booking> {
     return this.http.delete<Booking>(this.ApiUrl + this.RegisterBookingCollection + `&id=${id}`)
       .pipe((data) => {
         return data;

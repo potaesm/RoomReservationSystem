@@ -43,3 +43,8 @@ table {
     flex-direction: row;
     justify-content: center;
 }
+
+.cancel-button {
+    background-color: tomato;
+    color: white;
+}

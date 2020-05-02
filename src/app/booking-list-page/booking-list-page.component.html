@@ -2,6 +2,13 @@
     <mat-card class="center-align">
         <mat-card-title>คำขอการจอง</mat-card-title>
         <mat-card-content>
+            <router-outlet>
+                <button mat-raised-button routerLink="/table" [queryParams]="{ user: 'admin' }">หน้าหลัก</button>
+                <span class="spacer"></span>
+                <button mat-raised-button routerLink="/login">ออกจากระบบ</button>
+            </router-outlet>
+            <br>
+            <br>
             <div *ngFor="let request of requests; let i = index" class="center">
                 <mat-card class="request-cards">
                     <h3>ข้อมูลคำขอการจอง {{i+1}}</h3>
@@ -17,6 +24,10 @@
                         <p>เวลาสิ้นสุด : <span>{{request.bookingTerminateTime}}</span></p>
                         <p>เหตุผลในการจอง : <span>{{request.reason}}</span></p>
                     </mat-card-content>
+                    <mat-form-field class="input-width">
+                        <input matInput placeholder="เหตุผลการไม่อนุมัติจอง" [(ngModel)]="request.rejectReason">
+                    </mat-form-field>
+                    <button mat-raised-button color="accent" (click)="onClick(request)">ยืนยันการจอง</button>
                 </mat-card>
             </div>
         </mat-card-content>
