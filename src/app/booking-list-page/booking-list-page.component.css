@@ -1,0 +1,45 @@
+.page-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+mat-card {
+    width: 60%;
+}
+
+.spacer {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.yellow {
+    color: orange;
+}
+
+.red {
+    color: red;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-header-cell {
+    text-align: center;
+}
+
+.request-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

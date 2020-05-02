@@ -1,1 +1,24 @@
-<p>booking-list-page works!</p>
+<div class="page-container">
+    <mat-card class="center-align">
+        <mat-card-title>คำขอการจอง</mat-card-title>
+        <mat-card-content>
+            <div *ngFor="let request of requests; let i = index" class="center">
+                <mat-card class="request-cards">
+                    <h3>ข้อมูลคำขอการจอง {{i+1}}</h3>
+                    <mat-card-content>
+                        <p>id : <span>{{request.id}}</span></p>
+                        <p>ชื่อ - นามสกุล : <span>{{request.name}}</span></p>
+                        <p>รหัสนักศึกษา หรือรหัสบุคลากร : <span>{{request.codeId}}</span></p>
+                        <p>เบอร์โทรติดต่อ : <span>{{request.tel}}</span></p>
+                        <p>E-mail : <span>{{request.email}}</span></p>
+                        <p>ห้องที่ต้องการจอง : <span>{{request.selectedRoom}}</span></p>
+                        <p>วันที่ต้องการจอง : <span>{{request.selectedDay}}</span></p>
+                        <p>เวลาเริ่มต้น : <span>{{request.bookingInitialTime}}</span></p>
+                        <p>เวลาสิ้นสุด : <span>{{request.bookingTerminateTime}}</span></p>
+                        <p>เหตุผลในการจอง : <span>{{request.reason}}</span></p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
