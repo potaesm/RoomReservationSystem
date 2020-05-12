@@ -125,134 +125,139 @@ export class BookingPageComponent implements OnInit {
       this.reason === '') {
       this.dialog.open(DialogComponent, { width: '250px', data: { title: "ข้อมูลผิดพลาด", content: "กรุณากรอกข้อมูลให้ครบถ้วน" } });
     } else {
-      let calculatedUnit = this.calculateUnit(this.bookingInitialTime, this.bookingTerminateTime);
-      this.api.getBooking()
-        .subscribe(data => {
-          let registerValid = true;
-          this.dataArray = data;
+      if (this.codeId.length === 11 && this.tel.length === 10) {
+        let calculatedUnit = this.calculateUnit(this.bookingInitialTime, this.bookingTerminateTime);
+        this.api.getBooking()
+          .subscribe(data => {
+            let registerValid = true;
+            this.dataArray = data;
 
-          for (let i = 0; i < this.dataArray.length; i++) {
-            if (this.dataArray[i].selectedDay === this.selectedDay) {
-              if (this.dataArray[i].selectedRoom === 'CB40901') {
-                this.CB40901_Status.push(...this.dataArray[i].unit);
-              }
-              if (this.dataArray[i].selectedRoom === 'CB40902') {
-                this.CB40902_Status.push(...this.dataArray[i].unit);
-              }
-              if (this.dataArray[i].selectedRoom === 'CB40903') {
-                this.CB40903_Status.push(...this.dataArray[i].unit);
-              }
-              if (this.dataArray[i].selectedRoom === 'CB41001') {
-                this.CB41001_Status.push(...this.dataArray[i].unit);
-              }
-              if (this.dataArray[i].selectedRoom === 'CB41002') {
-                this.CB41002_Status.push(...this.dataArray[i].unit);
-              }
-              if (this.dataArray[i].selectedRoom === 'CB41003') {
-                this.CB41003_Status.push(...this.dataArray[i].unit);
-              }
-              if (this.dataArray[i].selectedRoom === 'CB41004') {
-                this.CB41004_Status.push(...this.dataArray[i].unit);
-              }
-              if (this.dataArray[i].selectedRoom === 'CB41005') {
-                this.CB41005_Status.push(...this.dataArray[i].unit);
+            for (let i = 0; i < this.dataArray.length; i++) {
+              if (this.dataArray[i].selectedDay === this.selectedDay) {
+                if (this.dataArray[i].selectedRoom === 'CB40901') {
+                  this.CB40901_Status.push(...this.dataArray[i].unit);
+                }
+                if (this.dataArray[i].selectedRoom === 'CB40902') {
+                  this.CB40902_Status.push(...this.dataArray[i].unit);
+                }
+                if (this.dataArray[i].selectedRoom === 'CB40903') {
+                  this.CB40903_Status.push(...this.dataArray[i].unit);
+                }
+                if (this.dataArray[i].selectedRoom === 'CB41001') {
+                  this.CB41001_Status.push(...this.dataArray[i].unit);
+                }
+                if (this.dataArray[i].selectedRoom === 'CB41002') {
+                  this.CB41002_Status.push(...this.dataArray[i].unit);
+                }
+                if (this.dataArray[i].selectedRoom === 'CB41003') {
+                  this.CB41003_Status.push(...this.dataArray[i].unit);
+                }
+                if (this.dataArray[i].selectedRoom === 'CB41004') {
+                  this.CB41004_Status.push(...this.dataArray[i].unit);
+                }
+                if (this.dataArray[i].selectedRoom === 'CB41005') {
+                  this.CB41005_Status.push(...this.dataArray[i].unit);
+                }
               }
             }
-          }
 
-          for (let i = 0; i < calculatedUnit.length; i++) {
-            switch (this.selectedRoom) {
-              case 'CB40901': {
-                if (this.CB40901_Status.includes(calculatedUnit[i])) {
-                  registerValid = false;
+            for (let i = 0; i < calculatedUnit.length; i++) {
+              switch (this.selectedRoom) {
+                case 'CB40901': {
+                  if (this.CB40901_Status.includes(calculatedUnit[i])) {
+                    registerValid = false;
+                  }
+                  break;
                 }
-                break;
-              }
-              case 'CB40902': {
-                if (this.CB40902_Status.includes(calculatedUnit[i])) {
-                  registerValid = false;
+                case 'CB40902': {
+                  if (this.CB40902_Status.includes(calculatedUnit[i])) {
+                    registerValid = false;
+                  }
+                  break;
                 }
-                break;
-              }
-              case 'CB40903': {
-                if (this.CB40903_Status.includes(calculatedUnit[i])) {
-                  registerValid = false;
+                case 'CB40903': {
+                  if (this.CB40903_Status.includes(calculatedUnit[i])) {
+                    registerValid = false;
+                  }
+                  break;
                 }
-                break;
-              }
-              case 'CB41001': {
-                if (this.CB41001_Status.includes(calculatedUnit[i])) {
-                  registerValid = false;
+                case 'CB41001': {
+                  if (this.CB41001_Status.includes(calculatedUnit[i])) {
+                    registerValid = false;
+                  }
+                  break;
                 }
-                break;
-              }
-              case 'CB41002': {
-                if (this.CB41002_Status.includes(calculatedUnit[i])) {
-                  registerValid = false;
+                case 'CB41002': {
+                  if (this.CB41002_Status.includes(calculatedUnit[i])) {
+                    registerValid = false;
+                  }
+                  break;
                 }
-                break;
-              }
-              case 'CB41003': {
-                if (this.CB41003_Status.includes(calculatedUnit[i])) {
-                  registerValid = false;
+                case 'CB41003': {
+                  if (this.CB41003_Status.includes(calculatedUnit[i])) {
+                    registerValid = false;
+                  }
+                  break;
                 }
-                break;
-              }
-              case 'CB41004': {
-                if (this.CB41004_Status.includes(calculatedUnit[i])) {
-                  registerValid = false;
+                case 'CB41004': {
+                  if (this.CB41004_Status.includes(calculatedUnit[i])) {
+                    registerValid = false;
+                  }
+                  break;
                 }
-                break;
-              }
-              case 'CB41005': {
-                if (this.CB41005_Status.includes(calculatedUnit[i])) {
-                  registerValid = false;
+                case 'CB41005': {
+                  if (this.CB41005_Status.includes(calculatedUnit[i])) {
+                    registerValid = false;
+                  }
+                  break;
                 }
-                break;
+                default: break;
               }
-              default: break;
             }
-          }
-          if (registerValid) {
-            let bookingTimeValid = (Number(this.bookingTerminateTime.substring(0, this.bookingTerminateTime.indexOf("."))) >= Number(this.bookingInitialTime.substring(0, this.bookingInitialTime.indexOf("."))));
-            if (bookingTimeValid) {
-              this.api.registerBooking({
-                name: this.name,
-                codeId: this.codeId,
-                tel: this.tel,
-                email: this.email,
-                selectedRoom: this.selectedRoom,
-                selectedDay: this.selectedDay,
-                bookingInitialTime: this.bookingInitialTime,
-                bookingTerminateTime: this.bookingTerminateTime,
-                reason: this.reason,
-                unit: calculatedUnit,
-                status: false
-              }, this.id)
-                .subscribe(data => {
-                  this.dialog.open(DialogComponent, { width: '250px', data: { title: "เสร็จสิ้น", content: "บันทึกข้อมูลแล้ว" } })
-                    .afterClosed().subscribe((result) => {
-                      this.name = '';
-                      this.codeId = '';
-                      this.tel = '';
-                      this.email = '';
-                      this.selectedRoom = '';
-                      this.selectedDay = '';
-                      this.bookingInitialTime = '';
-                      this.bookingTerminateTime = '';
-                      this.reason = '';
-                      this.router.navigate(['/table']);
-                    });
-                });
+            if (registerValid) {
+              let bookingTimeValid = (Number(this.bookingTerminateTime.substring(0, this.bookingTerminateTime.indexOf("."))) >= Number(this.bookingInitialTime.substring(0, this.bookingInitialTime.indexOf("."))));
+              if (bookingTimeValid) {
+                this.api.registerBooking({
+                  name: this.name,
+                  codeId: this.codeId,
+                  tel: this.tel,
+                  email: this.email,
+                  selectedRoom: this.selectedRoom,
+                  selectedDay: this.selectedDay,
+                  bookingInitialTime: this.bookingInitialTime,
+                  bookingTerminateTime: this.bookingTerminateTime,
+                  reason: this.reason,
+                  unit: calculatedUnit,
+                  status: false
+                }, this.id)
+                  .subscribe(data => {
+                    this.dialog.open(DialogComponent, { width: '250px', data: { title: "เสร็จสิ้น", content: "บันทึกข้อมูลแล้ว" } })
+                      .afterClosed().subscribe((result) => {
+                        this.name = '';
+                        this.codeId = '';
+                        this.tel = '';
+                        this.email = '';
+                        this.selectedRoom = '';
+                        this.selectedDay = '';
+                        this.bookingInitialTime = '';
+                        this.bookingTerminateTime = '';
+                        this.reason = '';
+                        this.router.navigate(['/table']);
+                      });
+                  });
+              } else {
+                this.dialog.open(DialogComponent, { width: '250px', data: { title: "ไม่สามารถจองได้", content: "รูปแบบเวลาที่จองไม่ถูกต้อง" } })
+                  .afterClosed().subscribe((result) => { });
+              }
             } else {
-              this.dialog.open(DialogComponent, { width: '250px', data: { title: "ไม่สามารถจองได้", content: "รูปแบบเวลาที่จองไม่ถูกต้อง" } })
+              this.dialog.open(DialogComponent, { width: '250px', data: { title: "ไม่สามารถจองได้", content: "มีคนจองในช่วงเวลาดังกล่าวแล้ว" } })
                 .afterClosed().subscribe((result) => { });
             }
-          } else {
-            this.dialog.open(DialogComponent, { width: '250px', data: { title: "ไม่สามารถจองได้", content: "มีคนจองในช่วงเวลาดังกล่าวแล้ว" } })
-              .afterClosed().subscribe((result) => { });
-          }
-        });
+          });
+      } else {
+        this.dialog.open(DialogComponent, { width: '250px', data: { title: "ไม่สามารถจองได้", content: "ข้อมูลเบอร์โทร หรือรหัสไม่ถูกต้อง" } })
+        .afterClosed().subscribe((result) => { });
+      }
     }
   }
 
